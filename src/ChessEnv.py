@@ -27,7 +27,7 @@ class ChessEnv:
         self.board = chess.Board()
 
         # return board state and done status
-        return self.board, self.board.is_checkmate()
+        return self.board, self.board.outcome() is not None
 
 
     def step(self,a):
@@ -41,7 +41,7 @@ class ChessEnv:
         env.board.push(a) # perform if legal
 
         # return board state and done status
-        return self.board, self.board.is_checkmate()
+        return self.board, self.board.outcome() is not None
 
 
     # ------------------------------------------------------ RL Methods
@@ -62,8 +62,9 @@ class ChessEnv:
 
             if done:
                 print("Sequence ended in checkmate at move %s in index %s"%(a,i))
+                print(current_board.outcome())
                 return current_board, done
-
+                
         print("Sequence finished.")
         return current_board, done
 
