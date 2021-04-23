@@ -5,11 +5,6 @@ License: MIT
 """
 
 # ---------------------------------------------------------- Imports
-# chess
-import chess
-
-# common & scientific libraries
-import random
 
 # ---------------------------------------------------------- Class Definition
 class ChessRival:
@@ -21,6 +16,4 @@ class ChessRival:
 
 # ---------------------------------------------------------- Main
 if __name__ == '__main__':
-    board = chess.Board()
-    print(board)
-    print(board.legal_moves)
+    pass
